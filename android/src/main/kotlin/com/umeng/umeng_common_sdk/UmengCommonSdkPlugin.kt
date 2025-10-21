@@ -131,7 +131,7 @@ class UmengCommonSdkPlugin : FlutterPlugin, MethodCallHandler {
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            Log.e("Umeng", "Exception: ${e.message}")
+            Log.e(TAG, "Exception: ${e.message}")
             result.error("UMENG_ERROR", e.message, null)
         }
     }
@@ -147,6 +147,7 @@ class UmengCommonSdkPlugin : FlutterPlugin, MethodCallHandler {
             val channel = args["channel"] as String
             UMConfigure.preInit(it, appKey, channel)
             UMConfigure.submitPolicyGrantResult(context, true)
+            Log.i(TAG, "preInit: appKey:$appKey; channel:${channel}")
         }
     }
 
