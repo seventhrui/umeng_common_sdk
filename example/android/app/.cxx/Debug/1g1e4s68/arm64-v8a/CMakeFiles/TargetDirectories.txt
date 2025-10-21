@@ -1,0 +1,2 @@
+D:/workspace/project/flutter_plugin/umeng_common_sdk/example/android/app/.cxx/Debug/1g1e4s68/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/workspace/project/flutter_plugin/umeng_common_sdk/example/android/app/.cxx/Debug/1g1e4s68/arm64-v8a/CMakeFiles/rebuild_cache.dir
