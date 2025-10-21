@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.annotation.NonNull
 import com.umeng.analytics.MobclickAgent
 import com.umeng.commonsdk.UMConfigure
+import com.umeng.commonsdk.debug.UMLog
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -31,7 +32,8 @@ class UmengCommonSdkPlugin : FlutterPlugin, MethodCallHandler {
                 versionMatch = methods.any { it.name == "onEventObject" }
 
                 if (!versionMatch) {
-                    Log.e(TAG, "安卓SDK版本过低，建议升级至8以上")
+                    //Log.e(TAG, "安卓SDK版本过低，建议升级至8以上")
+                    UMLog.getLogger(0).log(TAG, "安卓SDK版本过低，建议升级至8以上")
                 } else {
                     Log.e(TAG, "安卓依赖版本检查成功")
                 }
@@ -64,6 +66,7 @@ class UmengCommonSdkPlugin : FlutterPlugin, MethodCallHandler {
         context = flutterPluginBinding.applicationContext
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, CHANNEL_NAME)
         channel.setMethodCallHandler(this)
+        UMConfigure.setLogEnabled(true)
         onAttachedEngineAdd()
     }
 
